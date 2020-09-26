@@ -71,7 +71,7 @@ const BabyDevelopment = (props) => {
             <CardHeader>
               <Row>
                 <Col>
-                  <CardTitle tag="h4">cycle de development d'un bébé</CardTitle>
+                  <CardTitle tag="h4">Profile Bébé</CardTitle>
                 </Col>
                 <Col>
                   <NewBabyDev refresh={refresh} setRefresh={setRefresh} />

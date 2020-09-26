@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import {
-  Card,
-  CardBody,
-  Row,
-  Col,
-  CardFooter,
-  Container,
-  Spinner,
-} from "reactstrap";
+import { Card, Row, Col, CardFooter, Spinner } from "reactstrap";
 import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
-import { AiFillEdit } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
 import _ from "lodash";
 import CreateNewArticle from "./CreateNewArticle";
 
-import { v4 as uuidv4 } from "uuid";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
@@ -71,6 +61,7 @@ const Articles = () => {
                       : el[1].name.slice(0, 40) + "..."}
                   </h6>
                 </div>
+                Numero de semaine : {el[1].week}
               </div>
               <hr style={{ margin: 0 }} />
               <CardFooter>

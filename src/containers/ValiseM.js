@@ -44,6 +44,7 @@ const ProductType = (props) => {
               >
                 <div
                   style={{
+                    whiteSpace: "nowrap",
                     flex: 1,
                     color: "#FBC658",
                     padding: 0,
@@ -119,12 +120,13 @@ const ProductType = (props) => {
                             <EditValiseItem
                               refresh={refresh}
                               setRefresh={setRefresh}
-                              el={el}
+                              itemName={items[i]}
                               valiseID={valiseID}
                               itemID={i}
                             />
                           </td>
-                          <td style={{ width: "100%" }}>{el?.Name}</td>
+
+                          <td style={{ width: "100%" }}>{items[i]}</td>
                         </tr>
                       ))}
                     </>

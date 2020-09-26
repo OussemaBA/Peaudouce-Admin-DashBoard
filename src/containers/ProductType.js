@@ -16,7 +16,7 @@ const ProductType = (props) => {
   const { items, color, name, id, refresh, setRefresh } = props;
 
   const toggle = () => setIsOpen(!isOpen);
-  const [NewColor, setNewColor] = useState(color);
+  const [NewColor, setNewColor] = useState(`#${color}`);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="content">
@@ -51,7 +51,7 @@ const ProductType = (props) => {
 
                 <div
                   style={{
-                    flex: 7,
+                    flex: 5,
                     width: "100%",
                     margin: "auto",
                     fontSize: "125%%",
@@ -66,15 +66,16 @@ const ProductType = (props) => {
                     marginRight: "15px",
                   }}
                 >
-                  Color
+                  Couleur
                   <input
                     onChange={(e) => {
                       setNewColor(e.target.value);
                       const prod = {
-                        color: NewColor,
+                        color: NewColor.substring(1),
                         items: items === undefined ? {} : items,
                         name,
                       };
+
                       UpdateDoc(`/products`, id, prod);
                     }}
                     style={{
@@ -122,7 +123,7 @@ const ProductType = (props) => {
                       alignItems: "flex-end",
                     }}
                   >
-                    <div style={{ flex: 1 }}>Delete</div>
+                    <div style={{ flex: 1 }}>Supprimer</div>
                     <AiOutlineDelete
                       style={{
                         color: "red",
@@ -132,20 +133,6 @@ const ProductType = (props) => {
                       }}
                     />
                   </div>
-
-                  {/* <div
-                    style={{
-                      flex: 10,
-                      fontSize: "12px",
-                      marginBottom: "1px",
-                    }}
-                    onClick={() => {
-                      deleteDoc(`products`, id);
-                      setRefresh(!refresh);
-                    }}
-                  >
-                    supprimer
-                  </div> */}
                 </div>
               </div>
             </div>

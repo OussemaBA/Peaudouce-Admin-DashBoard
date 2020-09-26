@@ -41,7 +41,9 @@ const Tables = (props) => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetchData("/users").then((data) => setUsers(data));
+    fetchData("/users").then((data) => {
+      setUsers(data);
+    });
   }, [refresh]);
 
   const renderUsers = () =>
@@ -133,13 +135,14 @@ const Tables = (props) => {
                           style={{ maxWidth: "100px", maxHeight: "100px" }}
                         />
                       </td>
-                      <td>{el[1]?.sexBaby}</td>
-                      <td>{el[1].dateDeNaiss}</td>
-                      <td>{el[1].nTel}</td>
-                      <td>{el[1].email}</td>
-                      <td>{el[1].dateTerme}</td>
-                      <td>{el[1].poid}</td>
-                      <td>{el[1].region}</td>
+                      {<td>{el[1]?.sexBaby}</td>}
+
+                      <td>{el[1]?.dateDeNaiss}</td>
+                      <td>{el[1]?.nTel}</td>
+                      <td>{el[1]?.email}</td>
+                      <td>{el[1]?.dateTerme}</td>
+                      <td>{el[1]?.poid}</td>
+                      <td>{el[1]?.region}</td>
                     </tr>
                   ))}
                 </tbody>

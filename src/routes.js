@@ -13,14 +13,21 @@ import ValiseMaternite from "views/ValiseMaternite";
 var routes = [
   {
     path: "/dashboard",
-    name: "Dashboard",
+    name: "Tableau de bord",
     icon: "nc-icon nc-bank",
     component: Dashboard,
     layout: "/admin",
   },
   {
     path: "/products",
-    name: "Products",
+    name: "Produits",
+    icon: "nc-icon nc-tile-56",
+    component: Products,
+    layout: "/admin",
+  },
+  {
+    path: "/categorie",
+    name: "Catégories",
     icon: "nc-icon nc-tile-56",
     component: Products,
     layout: "/admin",
@@ -36,21 +43,21 @@ var routes = [
 
   {
     path: "/tables",
-    name: "User Lists",
+    name: "Listes d'utilisateurs",
     icon: "nc-icon nc-tile-56",
     component: UserList,
     layout: "/admin",
   },
   {
     path: "/nameList",
-    name: "Name List",
+    name: "Liste des nom",
     icon: "nc-icon nc-diamond",
     component: NameList,
     layout: "/admin",
   },
   {
     path: "/babydev",
-    name: "Baby Dev",
+    name: "Profile bébé",
     icon: "nc-icon nc-tile-56",
     component: BabyDevelopment,
     layout: "/admin",

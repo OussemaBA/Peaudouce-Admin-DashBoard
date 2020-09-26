@@ -27,16 +27,20 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState(true);
   const [articles, setArticles] = useState([]);
+  const [postArticles, setPostArticles] = useState([]);
   const [products, setProducts] = useState([]);
   const [femaleNames, setFemaleNames] = useState({});
   const [maleNames, setmaleNames] = useState({});
-  const path = "/valisematernite";
+
   useEffect(() => {
     //FETCH USERS
 
     setLoading(true);
-    fetchData(path).then((data) => {
+    fetchData("/articles").then((data) => {
       setArticles(data);
+    });
+    fetchData("/articlespostborn").then((data) => {
+      setPostArticles(data);
     });
     fetchData("/users").then((data) => {
       setUsers(data);
@@ -67,7 +71,7 @@ const Dashboard = () => {
       <>
         <div className="content">
           <Row>
-            <button
+            {/* <button
               onClick={() => {
                 _.map(articles, (el, i) => {
                   _.map(el.items, (item, id) => {
@@ -80,7 +84,7 @@ const Dashboard = () => {
             >
               {" "}
               test
-            </button>
+            </button> */}
 
             <Col lg="3" md="6" sm="6">
               <Card className="card-stats">
@@ -123,7 +127,8 @@ const Dashboard = () => {
                       <div className="numbers">
                         <p className="card-category">Articles</p>
                         <CardTitle tag="p">
-                          {Object.keys(articles).length}
+                          {Object.keys(articles).length +
+                            Object.keys(postArticles).length}
                         </CardTitle>
                         <p />
                       </div>
@@ -151,7 +156,9 @@ const Dashboard = () => {
                     <Col md="8" xs="7">
                       <div className="numbers">
                         <p className="card-category"> produits</p>
-                        <CardTitle tag="p">{products.length}</CardTitle>
+                        <CardTitle tag="p">
+                          {Object.keys(products).length}
+                        </CardTitle>
                         <p />
                       </div>
                     </Col>
@@ -191,7 +198,7 @@ const Dashboard = () => {
                             Filles :
                           </div>
                           <div style={{ flex: 1, fontSize: "15px" }}>
-                            {femaleNames.length}
+                            {Object.keys(femaleNames).length}
                           </div>
                         </div>
                         <div style={{ display: "flex" }}>
@@ -199,7 +206,7 @@ const Dashboard = () => {
                             garçons:
                           </div>
                           <div style={{ flex: 1, fontSize: "15px" }}>
-                            {maleNames.length}
+                            {Object.keys(maleNames).length}
                           </div>
                         </div>
 

@@ -42,9 +42,6 @@ export const deleteDoc = (collection, id) => {
 
 /***UPDATE USER */
 export const UpdateDoc = (collection, id, data) => {
-  console.log("collection :", collection);
-  console.log("id :", id);
-  console.log("data :", data);
   const CollectionRef = firebase.database().ref(collection).child(id);
 
   CollectionRef.update(data);

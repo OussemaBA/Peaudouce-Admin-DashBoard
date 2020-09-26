@@ -46,7 +46,7 @@ const Example = (props) => {
             }}
           >
             <div style={{ display: "flex" }}>
-              Articles :
+              Article de grossesse :
               <div style={{ marginLeft: "5px", flex: 1, color: "#51cbce" }}>
                 {Object.keys(art)?.length}
               </div>
@@ -62,7 +62,7 @@ const Example = (props) => {
             }}
           >
             <div style={{ display: "flex" }}>
-              Articles post born :
+              Articles aprés accouchement :
               <div style={{ marginLeft: "5px", flex: 1, color: "#51cbce" }}>
                 {Object.keys(artPost)?.length}
               </div>

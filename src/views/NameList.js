@@ -47,7 +47,6 @@ const NameList = () => {
     ) : (
       <>
         <Col md="12">
-          {console.log("femaleNames", femaleNames)}
           <Card className="card-plain">
             <CardHeader>
               <CardTitle tag="h4">Pour fille</CardTitle>

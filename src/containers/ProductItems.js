@@ -91,15 +91,14 @@ const ProductItems = (props) => {
                           alignItems: "flex-end",
                         }}
                       >
-                        {console.log(item)}
                         <div style={{ flex: 1 }}>
-                          {/* <EditItem
+                          <EditItem
                             id={id}
                             itemID={i}
                             item={item}
                             refresh={refresh}
                             setRefresh={setRefresh}
-                          /> */}
+                          />
                         </div>
                         <div
                           style={{

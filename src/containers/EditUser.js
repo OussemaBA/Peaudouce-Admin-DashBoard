@@ -41,6 +41,7 @@ const ModalExample = (props) => {
     region: "",
     photoBaby: "",
     photoUser: "",
+    sexBaby: "n",
   });
 
   const handleUserImageAsFile = (e) => {
@@ -67,17 +68,19 @@ const ModalExample = (props) => {
         region,
         photoBaby,
         photoUser,
+        sexBaby,
       } = data;
 
       setFormValue({
-        babyName,
+        babyName: babyName === undefined ? "" : babyName,
         email,
         name,
         poid,
         nTel,
-        dateDeNaiss,
+        dateDeNaiss: dateDeNaiss === undefined ? "" : dateDeNaiss,
         dateTerme,
         region,
+        sexBaby: sexBaby === undefined ? "n" : sexBaby,
         photoBaby,
         photoUser,
       });
@@ -186,6 +189,7 @@ const ModalExample = (props) => {
                 onChange={(e) => handeChange(e, "dateTerme")}
               />
             </FormGroup>
+
             <FormGroup>
               <Label for="babysex">Sex du bébé</Label>
               <Input
@@ -194,18 +198,7 @@ const ModalExample = (props) => {
                 id="babysex"
                 onChange={(e) => handeChange(e, "sexBaby")}
               >
-                <option>Garçon</option>
-                <option>Fille</option>
-              </Input>
-            </FormGroup>
-            <FormGroup>
-              <Label for="babysex">Sex du bébé</Label>
-              <Input
-                type="select"
-                name="babysex"
-                id="babysex"
-                onChange={(e) => handeChange(e, "sexBaby")}
-              >
+                <option value="n">choisir un sex</option>
                 <option value="Garçon">Garçon</option>
                 <option value="fille">Fille</option>
               </Input>
@@ -286,7 +279,8 @@ const ModalExample = (props) => {
               formValues.nTel === "" ||
               formValues.dateDeNaiss === "" ||
               formValues.dateTerme === "" ||
-              formValues.region === ""
+              formValues.region === "" ||
+              formValues.sexBaby === ""
             }
             onClick={() => {
               const user = {
@@ -294,7 +288,6 @@ const ModalExample = (props) => {
                 photoBaby: BabyImageAsUrl.imgUrl || defaultProfilePhoto,
                 photoUser: UserImageAsUrl.imgUrl || defaultProfilePhoto,
               };
-              console.log(user);
               UpdateDoc("users", el[0], user);
               toggle();
               setRefresh(!refresh);

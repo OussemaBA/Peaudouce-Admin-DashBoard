@@ -98,7 +98,7 @@ const ModalExample = (props) => {
             color="primary"
             onClick={() => {
               const prod = {
-                color: NewColor,
+                color: NewColor.substring(1),
                 items: {},
                 name: form.name,
               };

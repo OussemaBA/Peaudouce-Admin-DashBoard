@@ -8,16 +8,24 @@ import {
   Table,
   Input,
 } from "reactstrap";
-import { UpdateDoc } from "../Api/Api";
+import { deleteDoc, CreateNewDoc } from "../Api/Api";
 import { AiOutlineEdit } from "react-icons/ai";
 
 const EditValiseItem = (props) => {
-  const { className, refresh, setRefresh, valiseID, el, itemID } = props;
+  const {
+    className,
+    refresh,
+    setRefresh,
+    valiseID,
+    el,
+    itemID,
+    itemName,
+  } = props;
 
   const [modal, setModal] = useState(false);
 
   const [form, setForm] = useState({
-    Name: el.Name,
+    Name: itemName,
     //signification: el[1].signification,
   });
   const handeChange = (e, field) =>
@@ -42,7 +50,7 @@ const EditValiseItem = (props) => {
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
-              <th>Produit</th>
+              <th>Nouveau nom</th>
               <td>
                 <Input
                   value={form.Name}
@@ -60,12 +68,13 @@ const EditValiseItem = (props) => {
             disabled={form.Name === ""}
             color="primary"
             onClick={() => {
-              UpdateDoc(`valisematernite/${valiseID}/items/`, itemID, form);
+              deleteDoc(`valisematernite/${valiseID}/items`, itemID);
+              CreateNewDoc(`valisematernite/${valiseID}/items`, form.Name);
               setRefresh(!refresh);
               toggle();
             }}
           >
-            Ajouter
+            Enregistrer
           </Button>
         </ModalFooter>
       </Modal>

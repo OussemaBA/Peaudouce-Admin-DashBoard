@@ -70,7 +70,7 @@ const EditValiseItem = (props) => {
             disabled={form.Name === ""}
             color="primary"
             onClick={() => {
-              CreateNewDoc(`valisematernite/${valiseID}/items`, form);
+              CreateNewDoc(`valisematernite/${valiseID}/items`, form.Name);
               setForm({ form, Name: "" });
               setRefresh(!refresh);
               toggle();

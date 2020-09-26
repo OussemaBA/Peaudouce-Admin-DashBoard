@@ -9,15 +9,12 @@ import {
   Container,
   Spinner,
 } from "reactstrap";
-import { fetchData, deleteDoc, CreateNewDoc } from "../Api/Api";
+import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
-import { AiFillEdit } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
 import _ from "lodash";
 import CreateNewArticle from "./CreateNewArticle";
-import Toggle from "react-toggle";
-import { RiStarSLine, RiStarFill } from "react-icons/ri";
 import { RibbonContainer, RightCornerRibbon, RightRibbon } from "react-ribbons";
 
 const ArticlesPostBorn = () => {
@@ -73,6 +70,7 @@ const ArticlesPostBorn = () => {
                         ? el[1].name.slice(0, 39)
                         : el[1].name.slice(0, 40) + "..."}
                     </h6>
+                    Numero de semaine : {el[1].week}
                   </div>
                   {el[1].featured === "1" ? (
                     <RightRibbon
@@ -152,6 +150,7 @@ const ArticlesPostBorn = () => {
           />
         </Col>
       </Row>
+      {console.log(articles)}
 
       <div style={{ display: "block" }}>
         <Row xs="2" sm="3" md="5">

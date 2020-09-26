@@ -17,16 +17,9 @@ import "./style.css";
 import { AiFillEdit } from "react-icons/ai";
 import { GrClose, GrCheckmark } from "react-icons/gr";
 
-import { handleFireBaseUpload, fetchData } from "../Api/Api";
+import { handleFireBaseUpload, fetchData, UpdateDoc } from "../Api/Api";
 const EditArticle = (props) => {
-  const {
-    buttonLabel,
-    className,
-    el,
-    pathToFireBase,
-    refresh,
-    setRefresh,
-  } = props;
+  const { className, el, pathToFireBase, refresh, setRefresh } = props;
   const [shortdescription, setShortDescription] = useState(
     el[1]?.shortdescription
   );
@@ -34,10 +27,9 @@ const EditArticle = (props) => {
   const allInputs = { imgUrl: "" };
 
   const [imageAsFile, setImageAsFile] = useState("");
-  const [imageAsUrl, setImageAsUrl] = useState(allInputs);
   const [data, setData] = useState();
 
-  const [categorie, setCategorie] = useState(undefined);
+  const [categorie, setCategorie] = useState(el[1].categorys);
   const [weeks, setWeeks] = useState(el[1]?.week);
   const [content, setContent] = useState(el[1]?.content);
   const [image, setImage] = useState(allInputs);
@@ -66,76 +58,72 @@ const EditArticle = (props) => {
       </h5>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>
-          <div style={{ display: "flex" }}>
+          <div
+            style={{
+              display: "flex",
+              marginBottom: "15px",
+            }}
+          >
             <div
               style={{
-                flex: 3,
-                color: "#FBC658",
-                padding: 0,
-                margin: 0,
-                fontSize: "15px",
-                marginBottom: "10px",
+                fontSize: "12px",
+                marginTop: "2px",
+                marginRight: "2px",
+                flex: 1,
               }}
             >
-              nom de l'article
-            </div>
-            {pathToFireBase === "/articlespostborn" ? (
-              <div
-                style={{
-                  fontSize: "12px",
-                  marginTop: "2px",
-                  marginRight: "2px",
-                  flex: 1,
-                }}
-              >
-                Article spécial
-              </div>
-            ) : (
-              <></>
-            )}
-
-            <div>
               {pathToFireBase === "/articlespostborn" ? (
-                <ToggleButton
-                  inactiveLabel={<GrClose />}
-                  activeLabel={<GrCheckmark />}
-                  value={feature}
-                  colors={{
-                    activeThumb: {
-                      base: "rgb(250,250,250)",
-                    },
-                    inactiveThumb: {
-                      base: "rgb(62,130,247)",
-                    },
-                    active: {
-                      base: "rgb(240, 66, 60)",
-                      hover: "rgb(240, 66, 60)",
-                    },
-                    inactive: {
-                      base: "rgb(207,221,245)",
-                      hover: "rgb(207,221,245)",
-                    },
-                  }}
-                  onToggle={(value) => {
-                    setFeature(!feature);
-                  }}
-                />
+                <div style={{ flex: 1 }}>Article en premier</div>
               ) : (
-                ""
+                <></>
               )}
+
+              <div style={{ flex: 1 }}>
+                {pathToFireBase === "/articlespostborn" ? (
+                  <ToggleButton
+                    inactiveLabel={<GrClose />}
+                    activeLabel={<GrCheckmark />}
+                    value={feature}
+                    colors={{
+                      activeThumb: {
+                        base: "rgb(250,250,250)",
+                      },
+                      inactiveThumb: {
+                        base: "rgb(62,130,247)",
+                      },
+                      active: {
+                        base: "rgb(240, 66, 60)",
+                        hover: "rgb(240, 66, 60)",
+                      },
+                      inactive: {
+                        base: "rgb(207,221,245)",
+                        hover: "rgb(207,221,245)",
+                      },
+                    }}
+                    onToggle={(value) => {
+                      setFeature(!feature);
+                    }}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           </div>
-          <textarea
-            onChange={(e) => setName(e.target.value)}
-            className="textarea"
-            style={{ width: "100%" }}
-            id="name"
-            name="name"
-            rows="2"
-            cols="66"
-          >
-            {name}
-          </textarea>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ flex: 1 }}>Titre :</div>
+            <textarea
+              onChange={(e) => setName(e.target.value)}
+              className="textarea"
+              style={{ width: "100%", flex: 5 }}
+              id="name"
+              name="name"
+              rows="2"
+              cols="66"
+            >
+              {name}
+            </textarea>
+          </div>
           <div style={{ display: "flex" }}>
             <div
               style={{
@@ -254,7 +242,7 @@ const EditArticle = (props) => {
                   fontSize: "15px",
                 }}
               >
-                Description{" "}
+                Petit description{" "}
               </div>
 
               <p className="text-primary shortdescription">
@@ -300,10 +288,10 @@ const EditArticle = (props) => {
                 image: image.imgUrl,
               };
 
-              //  UpdateDoc(pathToFireBase, el[0], data);
-              // toggle();
+              UpdateDoc(pathToFireBase, el[0], data);
+              toggle();
 
-              // setRefresh(!refresh);
+              setRefresh(!refresh);
             }}
           >
             Modifier

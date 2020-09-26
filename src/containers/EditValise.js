@@ -153,7 +153,6 @@ const AddItem = (props) => {
                 image:
                   imageAsUrl.imgUrl === undefined ? image : imageAsUrl.imgUrl,
               };
-              console.log("doc:", doc);
               UpdateDoc(`valisematernite`, valiseID, doc);
 
               setRefresh(!refresh);

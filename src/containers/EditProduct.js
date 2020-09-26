@@ -88,7 +88,6 @@ const ModalExample = (props) => {
           </Table>
         </ModalBody>
         <ModalFooter>
-          {console.log("items", items)}
           <Button
             color="primary"
             onClick={() => {

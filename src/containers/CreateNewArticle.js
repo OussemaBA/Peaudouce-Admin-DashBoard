@@ -16,13 +16,7 @@ import { GrClose, GrCheckmark } from "react-icons/gr";
 import ToggleButton from "react-toggle-button";
 
 const ArticleViewer = (props) => {
-  const {
-    className,
-
-    refresh,
-    setRefresh,
-    pathToFireBase,
-  } = props;
+  const { className, refresh, setRefresh, pathToFireBase } = props;
   const [shortdescription, setShortDescription] = useState();
   const [name, setName] = useState();
   const allInputs = { imgUrl: undefined };
@@ -36,7 +30,10 @@ const ArticleViewer = (props) => {
   const [modal, setModal] = useState(false);
   const [feature, setFeature] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+    setRefresh(!refresh);
+  };
 
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
@@ -54,7 +51,13 @@ const ArticleViewer = (props) => {
         Nouveau article
       </Button>
 
-      <Modal isOpen={modal} toggle={toggle} className={className}>
+      <Modal
+        isOpen={modal}
+        toggle={() => {
+          toggle();
+        }}
+        className={className}
+      >
         <ModalHeader toggle={toggle}>
           <div style={{ display: "flex" }}>
             <div
@@ -78,7 +81,7 @@ const ArticleViewer = (props) => {
                   flex: 1,
                 }}
               >
-                Article spécial
+                Article en premier
               </div>
             ) : (
               <></>
@@ -279,7 +282,8 @@ const ArticleViewer = (props) => {
             disabled={
               categorie === undefined ||
               week === undefined ||
-              imageAsUrl.imgUrl === undefined
+              imageAsUrl.imgUrl === undefined ||
+              content === undefined
             }
             color="primary"
             onClick={() => {
@@ -292,7 +296,7 @@ const ArticleViewer = (props) => {
                       shortdescription,
                       content,
                       image: imageAsUrl.imgUrl,
-                      featured: feature,
+                      featured: feature === true ? "1" : "0",
                     }
                   : {
                       name,
@@ -302,7 +306,7 @@ const ArticleViewer = (props) => {
                       content,
                       image: imageAsUrl.imgUrl,
                     };
-
+              console.log("pathToFireBase", data);
               CreateNewDoc(pathToFireBase, data);
               setRefresh(!refresh);
               toggle();
