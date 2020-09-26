@@ -1,0 +1,179 @@
+.articleImg {
+  margin: 0;
+  flex: 1;
+  padding: "15px";
+  flex: 1;
+}
+.BordedTable {
+  margin: 20px 20px 20px 0;
+}
+.articleDescription {
+  flex: 1;
+  text-align: justify;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.shortdescription {
+  margin-top: 15px;
+}
+
+.description {
+  text-align: justify;
+}
+
+.collapseButton {
+  cursor: pointer;
+}
+
+label,
+textarea {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+textarea {
+  padding: 10px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.child {
+  margin: auto 0px;
+}
+
+hr.style-four {
+  border: 0;
+  margin: 5px 1px 30px 11px;
+
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.fNovnD {
+  padding-bottom: 0px !important;
+}
+
+/**************************/
+
+/*
+=====
+DEPENDENCIES
+=====
+*/
+
+.r-link {
+  display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href] {
+  color: var(--rLinkColor) !important;
+  text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+.text-underlined {
+  /*
+        1. I use pixels units because others units (em, rem, vw, vh, etc) can
+        lead to the mistake of displaying a circumcised line
+    */
+
+  --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 2px); /* 1 */
+  --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, 0.5rem);
+  --uiTextUnderlinedPaddingBottom: calc(
+    var(--uiTextUnderlinedLineHeight) + var(--uiTextUnderlinedLineGap)
+  );
+
+  padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+  position: var(--textUnderlinedPosition, relative) !important;
+  z-index: var(--textUnderlinedZindex, 1) !important;
+}
+
+.text-underlined::after {
+  content: "";
+  width: var(--textUnderlinedLineWidht, 100%) !important;
+  height: var(--uiTextUnderlinedLineHeight) !important;
+  background-image: var(
+    --textUnderlinedBackgroundImage,
+    linear-gradient(
+      to top,
+      var(--textUnderlinedLineColor, currentColor) 30%,
+      rgba(0, 0, 0, 0) 45%
+    )
+  ) !important;
+
+  position: absolute;
+  left: var(--textUnderlinedLineLeft, 0) !important;
+  bottom: var(--textUnderlinedLineBottom, 0) !important;
+  z-index: var(--textUnderlinedLineZindex, -1) !important;
+}
+
+/*
+=====
+CORE
+=====
+*/
+
+.link {
+  --textUnderlinedLineHeight: 100%;
+  --textUnderlinedLineGap: 0;
+  --textUnderlinedLineColor: #fed330;
+
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.link::after {
+  will-change: width;
+  transition: width 0.1s ease-out;
+  transform: rotate(-2deg);
+  transform-origin: left bottom;
+}
+
+.link:hover {
+  --textUnderlinedLineWidht: 0;
+}
+
+.link:hover::after {
+  transition-duration: 0.15s;
+}
+
+/*
+* These styles for text decoration. The demo will be work without it
+*/
+
+.link {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.link:focus {
+  outline: 2px solid #fed330;
+  outline-offset: 0.5rem;
+}
+
+/*
+=====
+DEMO
+=====
+*/
+input[type="file"] {
+  opacity: 0;
+}
+
+.flags-table {
+  display: flex;
+  flex-flow: column;
+}
+tbody {
+  overflow-y: scroll;
+}

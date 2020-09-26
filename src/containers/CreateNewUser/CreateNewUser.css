@@ -1,0 +1,12 @@
+.parent {
+  display: inline-block;
+  width: 100%;
+}
+
+.choosefile {
+  float: left;
+}
+
+.uploadButton {
+  float: right;
+}
