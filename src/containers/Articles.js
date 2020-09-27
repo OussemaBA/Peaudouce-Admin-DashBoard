@@ -5,7 +5,6 @@ import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
-import _ from "lodash";
 import CreateNewArticle from "./CreateNewArticle";
 
 const Articles = () => {
@@ -61,54 +60,39 @@ const Articles = () => {
                       : el[1].name.slice(0, 40) + "..."}
                   </h6>
                 </div>
-                Numero de semaine : {el[1].week}
+                <div style={{ fontSize: "10px" }}>
+                  Numero de semaine : {el[1].week}
+                </div>
               </div>
               <hr style={{ margin: 0 }} />
               <CardFooter>
-                <Row className="justify-content-md-center">
-                  <Col>
-                    <ArticleViewer el={el[1]} />
-                  </Col>
+                <Row
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <ArticleViewer el={el[1]} />
 
-                  <Col>
-                    <h5 className="articles-icons ">
-                      <EditArticle
-                        el={el}
-                        pathToFireBase={"articles"}
-                        refresh={refresh}
-                        setRefresh={setRefresh}
-                      />
-                    </h5>
-                  </Col>
+                  <h5 className="articles-icons ">
+                    <EditArticle
+                      el={el}
+                      refresh={refresh}
+                      setRefresh={setRefresh}
+                      pathToFireBase={"articles"}
+                    />
+                  </h5>
 
-                  <Col>
-                    <h5 className="articles-icons deleteIcons">
-                      <AiOutlineDelete
-                        onClick={() => {
-                          // const articlesWithID = data.articles.map((el) => {
-                          //   const key = uuidv4();
-                          //   return { [key]: { el } };
-                          // });
-                          // data.articles = articlesWithID;
-                          // var dataStr =
-                          //   "data:text/json;charset=utf-8," +
-                          //   encodeURIComponent(JSON.stringify(data));
-                          // var downloadAnchorNode = document.createElement("a");
-                          // downloadAnchorNode.setAttribute("href", dataStr);
-                          // downloadAnchorNode.setAttribute(
-                          //   "download",
-                          //   "eezz" + ".json"
-                          // );
-                          // document.body.appendChild(downloadAnchorNode); // required for firefox
-                          // downloadAnchorNode.click();
-                          // downloadAnchorNode.remove();
-
-                          deleteDoc("articles", el[0]);
-                          setRefresh(!refresh);
-                        }}
-                      />
-                    </h5>
-                  </Col>
+                  <h5 className="articles-icons deleteIcons">
+                    <AiOutlineDelete
+                      onClick={() => {
+                        deleteDoc("/articlespostborn", el[0]);
+                        setRefresh(!refresh);
+                      }}
+                    />
+                  </h5>
                 </Row>
               </CardFooter>
             </Card>

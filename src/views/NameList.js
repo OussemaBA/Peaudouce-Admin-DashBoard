@@ -78,20 +78,6 @@ const NameList = () => {
                         <th>signification</th>
                       </tr>
                     </div>
-                    <div
-                      style={{
-                        flex: 1,
-                        cursor: "pointer",
-                        fontSize: "x-large",
-                        marginRight: "10px",
-                      }}
-                    >
-                      <CreateNewNameList
-                        refresh={refresh}
-                        setRefresh={setRefresh}
-                        pathFireBase={"/Namelist/female/"}
-                      />
-                    </div>
                   </div>
                 </thead>
                 <tbody style={{ width: "100%" }}>
@@ -132,6 +118,12 @@ const NameList = () => {
                   ))}
                 </tbody>
               </Table>
+
+              <CreateNewNameList
+                refresh={refresh}
+                setRefresh={setRefresh}
+                pathFireBase={"/Namelist/female/"}
+              />
             </CardBody>
           </Card>
         </Col>
@@ -142,31 +134,33 @@ const NameList = () => {
               <CardTitle tag="h4"> Pour garçon</CardTitle>
             </CardHeader>
             <CardBody>
-              <Table height="400" className="flags-table">
+              <Table borderless hover height="400" className="flags-table">
                 <thead className="text-primary">
-                  <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        flex: 1,
+                      }}
+                    >
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Nom</th>
+                        <th></th>
+                        <th></th>
 
-                    <th>Nom</th>
-                    <th>signification</th>
-                    <th>
-                      <div
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "x-large",
-                          marginRight: "10px",
-                        }}
-                      >
-                        <CreateNewNameList
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                          pathFireBase={"/Namelist/male/"}
-                        />
-                      </div>
-                    </th>
-                  </tr>
+                        <th>signification</th>
+                      </tr>
+                    </div>
+                  </div>
                 </thead>
                 <tbody>
                   {Object.entries(maleNames).map((el, key) => (
@@ -207,6 +201,12 @@ const NameList = () => {
                   ))}
                 </tbody>
               </Table>
+
+              <CreateNewNameList
+                refresh={refresh}
+                setRefresh={setRefresh}
+                pathFireBase={"/Namelist/male/"}
+              />
             </CardBody>
           </Card>
         </Col>

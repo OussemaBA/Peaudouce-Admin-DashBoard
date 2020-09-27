@@ -4,14 +4,14 @@ import { GrView } from "react-icons/gr";
 import "./style.css";
 
 const ArticleViewer = (props) => {
-  const { buttonLabel, className, el } = props;
+  const { className, el } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div>
       <h5 className="articles-icons" onClick={toggle}>
         <GrView />
       </h5>
@@ -63,6 +63,7 @@ const ArticleViewer = (props) => {
 
         <div style={{ display: "flex" }}>
           <img
+            alt={"..."}
             className={"articleImg"}
             style={{
               padding: "15px",

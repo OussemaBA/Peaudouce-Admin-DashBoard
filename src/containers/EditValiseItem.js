@@ -48,18 +48,20 @@ const EditValiseItem = (props) => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
         <ModalBody>
-          <Table bordered className={"BordedTable"}>
+          <Table striped bordered className={"BordedTable"}>
             <tr>
-              <th>Nouveau nom</th>
-              <td>
-                <Input
-                  value={form.Name}
-                  type="text"
-                  name="meaning"
-                  id="meaning"
-                  onChange={(e) => handeChange(e, "Name")}
-                />
-              </td>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <th style={{ whiteSpace: "nowrap" }}>Nouveau nom</th>
+                <div style={{ width: "100%", paddingLeft: "5px" }}>
+                  <Input
+                    value={form.Name}
+                    type="text"
+                    name="meaning"
+                    id="meaning"
+                    onChange={(e) => handeChange(e, "Name")}
+                  />
+                </div>
+              </div>
             </tr>
           </Table>
         </ModalBody>

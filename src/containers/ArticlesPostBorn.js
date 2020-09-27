@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import {
-  Card,
-  CardBody,
-  Row,
-  Col,
-  CardFooter,
-  Container,
-  Spinner,
-} from "reactstrap";
+import { Card, Row, Col, CardFooter, Spinner } from "reactstrap";
 import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
-import _ from "lodash";
 import CreateNewArticle from "./CreateNewArticle";
-import { RibbonContainer, RightCornerRibbon, RightRibbon } from "react-ribbons";
+import { RibbonContainer, RightRibbon } from "react-ribbons";
 
 const ArticlesPostBorn = () => {
   const [articles, setArticles] = useState([]);
@@ -50,7 +41,7 @@ const ArticlesPostBorn = () => {
               >
                 <div className="image">
                   <img
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ maxWidth: "200px", maxHeight: "200px" }}
                     alt="..."
                     src={el[1].image}
                   />
@@ -70,7 +61,9 @@ const ArticlesPostBorn = () => {
                         ? el[1].name.slice(0, 39)
                         : el[1].name.slice(0, 40) + "..."}
                     </h6>
-                    Numero de semaine : {el[1].week}
+                    <div style={{ fontSize: "10px" }}>
+                      Numero de semaine : {el[1].week}
+                    </div>
                   </div>
                   {el[1].featured === "1" ? (
                     <RightRibbon
@@ -86,50 +79,33 @@ const ArticlesPostBorn = () => {
                 </div>{" "}
                 <hr style={{ margin: 0 }} />
                 <CardFooter>
-                  <Row className="justify-content-md-center">
-                    <Col>
-                      <ArticleViewer el={el[1]} />
-                    </Col>
+                  <Row
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ArticleViewer el={el[1]} />
 
-                    <Col>
-                      <h5 className="articles-icons ">
-                        <EditArticle
-                          el={el}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                          pathToFireBase={"/articlespostborn"}
-                        />
-                      </h5>
-                    </Col>
+                    <h5 className="articles-icons ">
+                      <EditArticle
+                        el={el}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                        pathToFireBase={"/articlespostborn"}
+                      />
+                    </h5>
 
-                    <Col>
-                      <h5 className="articles-icons deleteIcons">
-                        <AiOutlineDelete
-                          onClick={() => {
-                            // const articlesWithID = data.articles.map((el) => {
-                            //   const key = uuidv4();
-                            //   return { [key]: { el } };
-                            // });
-                            // data.articles = articlesWithID;
-                            // var dataStr =
-                            //   "data:text/json;charset=utf-8," +
-                            //   encodeURIComponent(JSON.stringify(data));
-                            // var downloadAnchorNode = document.createElement("a");
-                            // downloadAnchorNode.setAttribute("href", dataStr);
-                            // downloadAnchorNode.setAttribute(
-                            //   "download",
-                            //   "eezz" + ".json"
-                            // );
-                            // document.body.appendChild(downloadAnchorNode); // required for firefox
-                            // downloadAnchorNode.click();
-                            // downloadAnchorNode.remove();
-
-                            deleteDoc("/articlespostborn", el[0]);
-                            setRefresh(!refresh);
-                          }}
-                        />
-                      </h5>
-                    </Col>
+                    <h5 className="articles-icons deleteIcons">
+                      <AiOutlineDelete
+                        onClick={() => {
+                          deleteDoc("/articlespostborn", el[0]);
+                          setRefresh(!refresh);
+                        }}
+                      />
+                    </h5>
                   </Row>
                 </CardFooter>
               </Card>

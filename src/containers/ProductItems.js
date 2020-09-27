@@ -62,7 +62,9 @@ const ProductItems = (props) => {
                         }}
                       >
                         <div style={{ flex: 1 }}>
-                          <AiOutlineLink />
+                          <a target="_blank" href={item?.url}>
+                            <AiOutlineLink />
+                          </a>
                         </div>
                         <div
                           style={{

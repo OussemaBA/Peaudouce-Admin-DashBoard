@@ -21,7 +21,6 @@ import { withRouter } from "react-router-dom";
 // reactstrap components
 import {
   Card,
-  Button,
   CardHeader,
   CardBody,
   CardTitle,
@@ -36,7 +35,7 @@ import { fetchData, deleteDoc } from "../Api/Api";
 import CreateNewUser from "../containers/CreateNewUser/CreateNewUser";
 import EditUser from "../containers/EditUser";
 
-const Tables = (props) => {
+const Tables = () => {
   const [users, setUsers] = useState();
   const [refresh, setRefresh] = useState(false);
 

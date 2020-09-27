@@ -8,13 +8,11 @@ import {
   Table,
   Input,
 } from "reactstrap";
-import { RiPlayListAddLine } from "react-icons/ri";
-import { CreateNewDoc, UpdateDoc } from "../Api/Api";
+import { UpdateDoc } from "../Api/Api";
 import { AiOutlineEdit } from "react-icons/ai";
 
 const ModalExample = (props) => {
   const { className, refresh, setRefresh, id, name, items, color } = props;
-  const [NewColor, setNewColor] = useState(color);
 
   const [modal, setModal] = useState(false);
 
@@ -92,7 +90,7 @@ const ModalExample = (props) => {
             color="primary"
             onClick={() => {
               const prod = {
-                color: NewColor,
+                color: color,
                 items: items === undefined ? {} : items,
                 name: form.name,
               };

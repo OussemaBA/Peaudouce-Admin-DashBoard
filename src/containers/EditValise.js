@@ -7,12 +7,10 @@ import {
   ModalFooter,
   Table,
   Input,
-  Label,
   CustomInput,
 } from "reactstrap";
 import { deleteDoc, UpdateDoc } from "../Api/Api";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { handleFireBaseUpload, CreateNewDoc } from "../Api/Api";
+import { handleFireBaseUpload } from "../Api/Api";
 import { AiOutlineEdit } from "react-icons/ai";
 
 const AddItem = (props) => {

@@ -6,8 +6,6 @@ import AddValise from "../containers/AddValise";
 import _ from "lodash";
 
 const Products = () => {
-  const toggle = () => setIsOpen(!isOpen);
-  const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState(true);
   const [refresh, setRefresh] = useState(false);
 

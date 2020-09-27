@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 // react plugin used to create charts
-import { fetchData, CreateNewDoc, deleteDoc } from "../Api/Api";
-import _ from "lodash";
+import { fetchData } from "../Api/Api";
 // reactstrap components
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   CardTitle,
@@ -14,11 +12,7 @@ import {
   Spinner,
 } from "reactstrap";
 // core components
-import {
-  dashboard24HoursPerformanceChart,
-  dashboardEmailStatisticsChart,
-  dashboardNASDAQChart,
-} from "variables/charts.js";
+
 import { AiOutlineTeam } from "react-icons/ai";
 import { RiArticleLine } from "react-icons/ri";
 import { BiPurchaseTagAlt } from "react-icons/bi";

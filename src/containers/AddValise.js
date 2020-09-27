@@ -7,10 +7,8 @@ import {
   ModalFooter,
   Table,
   Input,
-  Label,
   CustomInput,
 } from "reactstrap";
-import { UpdateDoc } from "../Api/Api";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { handleFireBaseUpload, CreateNewDoc } from "../Api/Api";
 

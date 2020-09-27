@@ -62,10 +62,10 @@ const ArticleViewer = (props) => {
           <div style={{ display: "flex" }}>
             <div
               style={{
-                flex: 3,
+                flex: 4,
                 color: "#FBC658",
                 padding: 0,
-                margin: 0,
+
                 fontSize: "15px",
                 marginBottom: "10px",
               }}
@@ -77,8 +77,8 @@ const ArticleViewer = (props) => {
                 style={{
                   fontSize: "12px",
                   marginTop: "2px",
-                  marginRight: "2px",
-                  flex: 1,
+                  marginRight: "10px",
+                  flex: 2,
                 }}
               >
                 Article en premier

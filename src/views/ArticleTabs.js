@@ -14,24 +14,20 @@ import ArticlesPostBorn from "../containers/ArticlesPostBorn";
 import classnames from "classnames";
 import Articles from "../containers/Articles";
 
-const Example = (props) => {
+const Example = () => {
   const [activeTab, setActiveTab] = useState("1");
   const [art, setArticles] = useState([]);
   const [artPost, setArticlesPost] = useState([]);
-  const [loading, setLoading] = useState();
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
   useEffect(() => {
-    setLoading(true);
     fetchData("/articles").then((data) => {
       setArticles(data);
     });
 
     fetchData("/articlespostborn").then((data) => setArticlesPost(data));
-
-    setLoading(false);
   }, []);
 
   return (

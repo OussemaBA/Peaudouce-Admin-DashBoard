@@ -10,20 +10,11 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import { AiFillEdit } from "react-icons/ai";
-import {
-  fetchOne,
-  handleFireBaseUpload,
-  UpdateDoc,
-  CreateNewDoc,
-} from "../Api/Api";
-import firebase from "../firebase";
+import { handleFireBaseUpload, CreateNewDoc } from "../Api/Api";
 
 const ModalExample = (props) => {
   const { className, setRefresh, refresh } = props;
-  const storage = firebase.storage();
-  const [loading, setLoading] = useState(false);
-  const allInputs = { imgUrl: "" };
+
   const [UserimageAsFile, setUserimageAsFile] = useState("");
   const [UserImageAsUrl, setUserImageAsUrl] = useState({
     imgUrl: "",

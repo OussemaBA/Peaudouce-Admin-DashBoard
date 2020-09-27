@@ -9,7 +9,6 @@ import {
   ModalFooter,
   Input,
   FormGroup,
-  Label,
   Badge,
 } from "reactstrap";
 import _ from "lodash";
@@ -62,63 +61,72 @@ const EditArticle = (props) => {
             style={{
               display: "flex",
               marginBottom: "15px",
+              justifyContent: "flex-end",
             }}
           >
             <div
               style={{
                 fontSize: "12px",
                 marginTop: "2px",
-                marginRight: "2px",
-                flex: 1,
+                marginRight: "12px",
               }}
             >
               {pathToFireBase === "/articlespostborn" ? (
-                <div style={{ flex: 1 }}>Article en premier</div>
+                "Article en premier"
               ) : (
                 <></>
               )}
+            </div>
 
-              <div style={{ flex: 1 }}>
-                {pathToFireBase === "/articlespostborn" ? (
-                  <ToggleButton
-                    inactiveLabel={<GrClose />}
-                    activeLabel={<GrCheckmark />}
-                    value={feature}
-                    colors={{
-                      activeThumb: {
-                        base: "rgb(250,250,250)",
-                      },
-                      inactiveThumb: {
-                        base: "rgb(62,130,247)",
-                      },
-                      active: {
-                        base: "rgb(240, 66, 60)",
-                        hover: "rgb(240, 66, 60)",
-                      },
-                      inactive: {
-                        base: "rgb(207,221,245)",
-                        hover: "rgb(207,221,245)",
-                      },
-                    }}
-                    onToggle={(value) => {
-                      setFeature(!feature);
-                    }}
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
+            <div style={{ flex: 1 }}>
+              {pathToFireBase === "/articlespostborn" ? (
+                <ToggleButton
+                  inactiveLabel={<GrClose />}
+                  activeLabel={<GrCheckmark />}
+                  value={feature}
+                  colors={{
+                    activeThumb: {
+                      base: "rgb(250,250,250)",
+                    },
+                    inactiveThumb: {
+                      base: "rgb(62,130,247)",
+                    },
+                    active: {
+                      base: "rgb(240, 66, 60)",
+                      hover: "rgb(240, 66, 60)",
+                    },
+                    inactive: {
+                      base: "rgb(207,221,245)",
+                      hover: "rgb(207,221,245)",
+                    },
+                  }}
+                  onToggle={(value) => {
+                    setFeature(!feature);
+                  }}
+                />
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ flex: 1 }}>Titre :</div>
+            <div
+              style={{
+                flex: 1,
+                fontWeight: "bold",
+                width: "fit-content",
+                fontSize: "15px",
+              }}
+            >
+              Titre :
+            </div>
             <textarea
               onChange={(e) => setName(e.target.value)}
               className="textarea"
               style={{ width: "100%", flex: 5 }}
               id="name"
               name="name"
-              rows="2"
+              rows="1"
               cols="66"
             >
               {name}
@@ -191,7 +199,13 @@ const EditArticle = (props) => {
         <div style={{ display: "flex" }}>
           <FormGroup>
             <div
-              style={{ padding: "20px 30px 30px 30px", display: "inline-grid" }}
+              style={{
+                padding: "20px 30px 0px 30px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                margin: "0px",
+              }}
             >
               <div
                 style={{
@@ -199,6 +213,7 @@ const EditArticle = (props) => {
                   padding: 0,
                   margin: 0,
                   fontSize: "15px",
+                  flex: "1",
                 }}
               >
                 Photo de l'article
@@ -215,8 +230,8 @@ const EditArticle = (props) => {
                 src={image.imgUrl}
                 style={{
                   padding: "0 15px 15px 15px",
-                  width: "100px",
-                  height: "100px",
+                  maxWidth: "200px",
+                  maxHeight: "200px",
                 }}
               />
               <button
@@ -262,13 +277,25 @@ const EditArticle = (props) => {
         </div>
 
         <ModalBody>
+          <div
+            style={{
+              color: "#FBC658",
+              padding: 0,
+              margin: 0,
+              fontSize: "15px",
+              marginBottom: "10px",
+            }}
+          >
+            Contenu de l'article
+          </div>
+
           <textarea
             onChange={(e) => setContent(e.target.value)}
             className="textarea"
             style={{ width: "100%" }}
             id="story"
             name="story"
-            rows="25"
+            rows="12"
           >
             {content}
           </textarea>

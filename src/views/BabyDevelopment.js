@@ -20,17 +20,10 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 // reactstrap components
 
-import {
-  handleFireBaseUpload,
-  fetchData,
-  deleteDoc,
-  UpdateDoc,
-  CreateNewDoc,
-} from "../Api/Api";
+import { fetchData, deleteDoc } from "../Api/Api";
 import _ from "lodash";
 import {
   Card,
-  Button,
   CardHeader,
   CardBody,
   CardTitle,

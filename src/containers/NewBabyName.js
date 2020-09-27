@@ -23,9 +23,29 @@ const ModalExample = (props) => {
 
   return (
     <div>
-      <div>
-        <RiPlayListAddLine onClick={toggle} />
+      <div
+        onClick={toggle}
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          color: "#51cbce ",
+
+          alignItems: "center",
+        }}
+      >
+        <div style={{ marginLeft: "auto", marginRight: "5px" }}>
+          Ajouter un nouveau nom
+        </div>
+        <div
+          style={{
+            fontSize: "x-large",
+            marginRight: "10px",
+          }}
+        >
+          <RiPlayListAddLine />
+        </div>
       </div>
+
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Ajoute d'un nouveau nom</ModalHeader>
         <ModalBody>

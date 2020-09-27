@@ -7,7 +7,6 @@ import {
   ModalFooter,
   Table,
   Input,
-  Label,
   CustomInput,
 } from "reactstrap";
 import { handleFireBaseUpload, UpdateDoc } from "../Api/Api";
@@ -87,6 +86,7 @@ const EditItem = (props) => {
                   </div>
                   <img
                     src={imageAsUrl.imgUrl || form.image}
+                    alt={"..."}
                     style={{
                       margin: "15px",
                       height: "250px",

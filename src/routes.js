@@ -1,6 +1,6 @@
 import Dashboard from "views/Dashboard.js";
 import Notifications from "views/Notifications.js";
-import Icons from "views/Icons.js";
+//import Icons from "views/Icons.js";
 import Typography from "views/Typography.js";
 import UserList from "views/UserList.js";
 import UserPage from "views/User.js";
@@ -9,7 +9,7 @@ import ArticleTabs from "views/ArticleTabs";
 import BabyDevelopment from "views/BabyDevelopment";
 import Products from "views/Products";
 import ValiseMaternite from "views/ValiseMaternite";
-
+import Categories from "views/Categories";
 var routes = [
   {
     path: "/dashboard",
@@ -29,7 +29,7 @@ var routes = [
     path: "/categorie",
     name: "Catégories",
     icon: "nc-icon nc-tile-56",
-    component: Products,
+    component: Categories,
     layout: "/admin",
   },
 

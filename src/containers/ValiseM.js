@@ -1,14 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Card,
-  Table,
-  FormGroup,
-  Input,
-  CustomInput,
-  InputGroup,
-  InputGroupText,
-  InputGroupAddon,
-} from "reactstrap";
+import React, { useState } from "react";
+import { Card, Table, FormGroup } from "reactstrap";
 import AddValiseItem from "../containers/AddValiseItem";
 import EditValiseItem from "../containers/EditValiseItem";
 import EditValise from "../containers/EditValise";
@@ -18,7 +9,7 @@ import { deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 
 const ProductType = (props) => {
-  const { el, refresh, setRefresh, valiseID, imageItem, name } = props;
+  const { el, refresh, setRefresh, valiseID, imageItem } = props;
   const { items } = el;
   const allInputs = { imgUrl: "" };
 
