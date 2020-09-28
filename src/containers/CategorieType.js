@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { Collapse, Card } from "reactstrap";
 import CategorieItem from "./CategorieItem";
-import EditProduct from "./EditProduct";
-import AddItem from "./AddItem";
+import EditCategorie from "./EditCategorie";
+import ViewCatergoryDescription from "./ViewCatergoryDescription";
 import _ from "lodash";
-import {
-  IoIosArrowDropright,
-  IoIosArrowDropdown,
-  IoIosArrowDropup,
-} from "react-icons/io";
+import { IoIosArrowDropright, IoIosArrowDropdown } from "react-icons/io";
 import { UpdateDoc, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const ProductType = (props) => {
+const CategorieType = (props) => {
   const { refresh, setRefresh, id, item } = props;
   const { image, description, color, name } = item;
   const toggle = () => setIsOpen(!isOpen);
-  const [NewColor, setNewColor] = useState(`#${color}`);
+  const [NewColor, setNewColor] = useState(`${color}`);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="content">
@@ -71,7 +67,7 @@ const ProductType = (props) => {
                     onChange={(e) => {
                       setNewColor(e.target.value);
                       const category = {
-                        color: NewColor.substring(1),
+                        color: NewColor,
                         name,
                       };
 
@@ -91,14 +87,15 @@ const ProductType = (props) => {
                   />
                 </div>
 
-                {/* <EditProduct
+                <EditCategorie
                   color={NewColor}
                   name={name}
                   id={id}
-                  items={items}
+                  description={description}
+                  image={image}
                   refresh={refresh}
                   setRefresh={setRefresh}
-                /> */}
+                />
 
                 <div
                   style={{
@@ -153,33 +150,7 @@ const ProductType = (props) => {
               justifyContent: "flex-end",
             }}
           >
-            <AddItem id={id} refresh={refresh} setRefresh={setRefresh} />
-            <div
-              className="collapseButton"
-              onClick={toggle}
-              style={{
-                color: "#007bff",
-                display: "flex",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "15px",
-                  marginRight: "5px",
-                  marginBottom: "2px",
-                  marginLeft: "25px",
-                }}
-              >
-                réduire
-              </div>
-              <IoIosArrowDropup
-                style={{
-                  flex: 1,
-                  fontSize: "x-large",
-                  cursor: "pointer",
-                }}
-              />
-            </div>
+            <ViewCatergoryDescription description={description} />
           </div>
         </Card>
       </Collapse>
@@ -187,4 +158,4 @@ const ProductType = (props) => {
   );
 };
 
-export default ProductType;
+export default CategorieType;

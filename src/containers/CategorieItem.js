@@ -4,15 +4,22 @@ import {
   YearContent,
   BodyContent,
   Section,
+  Description,
 } from "vertical-timeline-component-react";
 import React from "react";
 import _ from "lodash";
+import { GrView } from "react-icons/gr";
 
 import { AiOutlineDelete, AiOutlineLink } from "react-icons/ai";
 import { deleteDoc } from "../Api/Api";
-import EditItem from "./EditItem";
+import EditItem from "./EditProductItem";
 const ProductItems = (props) => {
   const { item, id, refresh, setRefresh } = props;
+
+  const trimmedText =
+    item.description.length < 337
+      ? item.description.slice(0, 337)
+      : item.description.slice(0, 337) + "...";
 
   const customTheme = {
     yearColor: "#405b73",
@@ -33,113 +40,37 @@ const ProductItems = (props) => {
 
             <BodyContent>
               <Section title={item?.name}>
-                <div style={{ display: "flex" }}>
-                  <div
-                    className={"peuImg"}
-                    style={{ maxWidth: "120px", flex: 1 }}
-                  >
-                    <img
-                      src={item?.image}
-                      style={{
-                        margin: " 5px 25px 5px 0px",
-                        objectFit: "cover",
-                        maxHeight: "100px",
-                        maxWidth: "100px",
-                      }}
-                    />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        cursor: "pointer",
-                        color: "red",
-                        fontSize: "large",
-                        marginRight: "5px",
-                        color: "#007BFF",
-                      }}
-                    >
-                      <div style={{ flex: 1 }}>
-                        <a target="_blank" href={item?.url}>
-                          <AiOutlineLink />
-                        </a>
-                      </div>
-                      <div
+                <div
+                  style={{
+                    display: "flex",
+
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ display: "flex" }}>
+                    <div style={{ flex: 1 }}>
+                      <img
+                        src={item?.image}
                         style={{
-                          flex: 10,
-                          fontSize: "12px",
-                          marginBottom: "4px",
-                          marginLeft: "5px",
+                          margin: " 5px 25px 5px 0px",
+                          objectFit: "cover",
+                          maxHeight: "200px",
+                          maxWidth: "200px",
                         }}
-                        // onClick={() => {
-                        //   setRefresh(!refresh);
-                        //   deleteDoc(`products/${id}/items`, id);
-                        // }}
-                      >
-                        <a target="_blank" href={item?.url}>
-                          Voir url
-                        </a>
-                      </div>
-                    </div>
-                    <div></div>
-                    <div
-                      style={{
-                        display: "flex",
-                        cursor: "pointer",
-                        fontSize: "large",
-                        marginRight: "5px",
-                        alignItems: "flex-end",
-                      }}
-                    >
-                      <div style={{ flex: 1 }}>
-                        {/* <EditItem
-                          id={id}
-                          itemID={i}
-                          item={item}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                        /> */}
-                      </div>
-                      <div
-                        style={{
-                          flex: 10,
-                          fontSize: "12px",
-                          marginBottom: "1px",
-                          marginLeft: "5px",
-                        }}
-                      >
-                        {" "}
-                        Edit
-                      </div>{" "}
+                      />
                     </div>
                     <div
                       style={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        cursor: "pointer",
-                        color: "red",
-                        fontSize: "large",
-                        marginRight: "5px",
+                        maxHeight: "fit-content",
+                        maxWidth: "400px",
+                        fontSize: "15px",
+                        marginRight: "10px",
+                        flex: 3,
+                        textAlign: "justify",
+                        textJustify: "inter-word",
                       }}
                     >
-                      <div style={{ flex: 1 }}>
-                        <AiOutlineDelete />
-                      </div>
-                      {/* <div
-                        style={{
-                          flex: 10,
-                          fontSize: "12px",
-                          marginBottom: "4px",
-                          marginLeft: "5px",
-                        }}
-                        onClick={() => {
-                          setRefresh(!refresh);
-                          deleteDoc(`products/${id}/items`, i);
-                        }}
-                      >
-                        Supprimer
-                      </div> */}
+                      <Description text={trimmedText} />
                     </div>
                   </div>
                 </div>

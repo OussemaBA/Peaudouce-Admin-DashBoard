@@ -34,7 +34,7 @@ import {
 } from "reactstrap";
 import { AiOutlineDelete } from "react-icons/ai";
 import defaultProfilePhoto from "../photos/Profile";
-import NewBabyDev from "../containers/NewBabyDev";
+import NewBabyDev from "../containers/AddBabyDev";
 import EditBabyDev from "../containers/EditBabyDev";
 
 const BabyDevelopment = (props) => {

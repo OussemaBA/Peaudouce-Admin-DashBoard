@@ -5,7 +5,7 @@ import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
-import CreateNewArticle from "./CreateNewArticle";
+import CreateNewArticle from "./AddArticle";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);

@@ -13,7 +13,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 
 const ModalExample = (props) => {
   const { className, refresh, setRefresh, id, name, items, color } = props;
-
+  const [NewColor, setNewColor] = useState(`${color}`);
   const [modal, setModal] = useState(false);
 
   const [form, setForm] = useState({ name: name });
@@ -27,7 +27,7 @@ const ModalExample = (props) => {
         onClick={toggle}
         style={{
           marginRight: "15px",
-
+          cursor: "pointer",
           display: "flex",
           flex: 2,
           alignItems: "flex-end",
@@ -38,7 +38,7 @@ const ModalExample = (props) => {
           style={{
             flex: 1,
             fontSize: "x-large",
-            cursor: "pointer",
+
             color: "#007bff",
           }}
         />
@@ -61,7 +61,7 @@ const ModalExample = (props) => {
                 />
               </td>
             </tr>
-            {/* <tr>
+            <tr>
               <th>Color</th>
               <td>
                 <input
@@ -82,7 +82,7 @@ const ModalExample = (props) => {
                   value={NewColor}
                 />
               </td>
-            </tr> */}
+            </tr>
           </Table>
         </ModalBody>
         <ModalFooter>
@@ -90,14 +90,14 @@ const ModalExample = (props) => {
             color="primary"
             onClick={() => {
               const prod = {
-                color: color,
+                color: NewColor.substring(1),
                 items: items === undefined ? {} : items,
                 name: form.name,
               };
-              UpdateDoc("/products", id, prod);
-              setRefresh(!refresh);
 
+              UpdateDoc("/products", id, prod);
               toggle();
+              setRefresh(!refresh);
             }}
           >
             Enregistrer

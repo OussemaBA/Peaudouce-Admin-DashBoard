@@ -10,7 +10,7 @@ import _ from "lodash";
 
 import { AiOutlineDelete, AiOutlineLink } from "react-icons/ai";
 import { deleteDoc } from "../Api/Api";
-import EditItem from "./EditItem";
+import EditItem from "./EditProductItem";
 const ProductItems = (props) => {
   const { items, id, refresh, setRefresh } = props;
 

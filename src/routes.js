@@ -6,7 +6,7 @@ import UserList from "views/UserList.js";
 import UserPage from "views/User.js";
 import NameList from "views/NameList.js";
 import ArticleTabs from "views/ArticleTabs";
-import BabyDevelopment from "views/BabyDevelopment";
+import BabyProfile from "views/BabyProfile";
 import Products from "views/Products";
 import ValiseMaternite from "views/ValiseMaternite";
 import Categories from "views/Categories";
@@ -59,7 +59,7 @@ var routes = [
     path: "/babydev",
     name: "Profile bébé",
     icon: "nc-icon nc-tile-56",
-    component: BabyDevelopment,
+    component: BabyProfile,
     layout: "/admin",
   },
   {

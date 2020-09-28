@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CategorieType from "../containers/CategorieType";
 import { fetchData } from "../Api/Api";
-import AddProduct from "../containers/AddProduct";
+import AddCategorie from "../containers/AddCategorie";
 
 import _ from "lodash";
 const Products = () => {
@@ -27,7 +27,7 @@ const Products = () => {
         </>
       ))}
       <div>
-        <AddProduct refresh={refresh} setRefresh={setRefresh} />
+        <AddCategorie refresh={refresh} setRefresh={setRefresh} />
       </div>
     </div>
   );

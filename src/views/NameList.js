@@ -13,7 +13,7 @@ import { fetchData, deleteDoc } from "../Api/Api";
 import _ from "lodash";
 import { AiOutlineDelete } from "react-icons/ai";
 import "./style.css";
-import CreateNewNameList from "../containers/NewBabyName";
+import CreateNewNameList from "../containers/AddBabyName";
 import EditBabyName from "../containers/EditBabyName";
 
 const NameList = () => {
