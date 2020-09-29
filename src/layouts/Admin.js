@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
 
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
+import Sidebar from "components/Sidebar/Sidebar";
 
 import routes from "routes.js";
 
@@ -43,6 +43,7 @@ class Dashboard extends React.Component {
   handleBgClick = (color) => {
     this.setState({ backgroundColor: color });
   };
+
   render() {
     return (
       <div className="wrapper">

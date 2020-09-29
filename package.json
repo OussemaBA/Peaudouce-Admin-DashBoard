@@ -26,7 +26,9 @@
     "react-simple-tree-menu": "^1.1.18",
     "react-toggle": "^4.1.1",
     "react-toggle-button": "^2.2.0",
+    "reactfire": "^2.0.0-alpha.3",
     "reactstrap": "8.4.1",
+    "universal-cookie": "^4.0.4",
     "uuid": "^8.3.0",
     "vertical-timeline-component-react": "^2.0.1"
   },
