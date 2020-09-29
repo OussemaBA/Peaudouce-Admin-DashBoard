@@ -37,7 +37,7 @@ const ProductType = (props) => {
                   style={{
                     width: "100%",
                     margin: "auto",
-                    flex: 1,
+                    flex: 0,
                     fontSize: "x-large",
                     color: "#007bff",
                   }}
@@ -51,7 +51,7 @@ const ProductType = (props) => {
 
                 <div
                   style={{
-                    flex: 5,
+                    flex: 4,
                     width: "100%",
                     margin: "auto",
                     fontSize: "125%%",
@@ -61,7 +61,6 @@ const ProductType = (props) => {
                 </div>
                 <div
                   style={{
-                    flex: 2,
                     display: "inline",
                     marginRight: "15px",
                   }}
@@ -119,7 +118,7 @@ const ProductType = (props) => {
                       marginRight: "10px",
 
                       display: "flex",
-                      flex: 2,
+                      flex: 1,
                       alignItems: "flex-end",
                     }}
                   >

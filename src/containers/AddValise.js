@@ -48,15 +48,15 @@ const AddValise = (props) => {
           color: "#007bff",
         }}
       >
-        <div style={{ marginRight: "5px", marginTop: "5px" }}>
-          Ajouter Valise
+        <div style={{ marginRight: "5px", marginTop: "5px", fontSize: "14px" }}>
+          Ajouter valise
         </div>
         <div style={{ fontSize: "x-large" }}>
           <IoMdAddCircleOutline />
         </div>
       </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajouter une valise </ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
@@ -110,8 +110,8 @@ const AddValise = (props) => {
                       width: "250px",
                     }}
                   />
-                  <button
-                    style={{ margin: "0 30px 0px 30px", width: " 80%" }}
+                  <Button
+                    style={{ margin: "0 30px 0px 30px", width: "fit-content" }}
                     onClick={(e) => {
                       handleFireBaseUpload(e, imageAsFile).then((data) => {
                         setImageAsUrl(data);
@@ -119,7 +119,7 @@ const AddValise = (props) => {
                     }}
                   >
                     télécharger
-                  </button>
+                  </Button>
                 </div>
               </td>
             </tr>
@@ -127,6 +127,7 @@ const AddValise = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             disabled={form.Name === ""}
             color="primary"
             onClick={() => {

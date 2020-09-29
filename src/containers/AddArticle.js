@@ -15,7 +15,7 @@ import _ from "lodash";
 import { GrClose, GrCheckmark } from "react-icons/gr";
 import ToggleButton from "react-toggle-button";
 
-const ArticleViewer = (props) => {
+const AddArticle = (props) => {
   const { className, refresh, setRefresh, pathToFireBase } = props;
   const [shortdescription, setShortDescription] = useState();
   const [name, setName] = useState();
@@ -46,8 +46,12 @@ const ArticleViewer = (props) => {
     });
   }, []);
   return (
-    <div style={{ width: "100%" }}>
-      <Button style={{ float: "right" }} color="primary" onClick={toggle}>
+    <div>
+      <Button
+        style={{ float: "right", maxWidth: "fit-content" }}
+        color="primary"
+        onClick={toggle}
+      >
         Nouveau article
       </Button>
 
@@ -59,18 +63,16 @@ const ArticleViewer = (props) => {
         className={className}
       >
         <ModalHeader toggle={toggle}>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <div
               style={{
-                flex: 4,
-                color: "#FBC658",
-                padding: 0,
-
+                flex: 1,
+                fontWeight: "bold",
+                width: "fit-content",
                 fontSize: "15px",
-                marginBottom: "10px",
               }}
             >
-              nom de l'article
+              Titre :
             </div>
             {pathToFireBase === "/articlespostborn" ? (
               <div
@@ -123,7 +125,7 @@ const ArticleViewer = (props) => {
             placeholder={"nom de l'article"}
             onChange={(e) => setName(e.target.value)}
             className="textarea"
-            style={{ width: "100%" }}
+            style={{ width: "100%", flex: 5 }}
             id="name"
             name="name"
             rows="1"
@@ -221,8 +223,7 @@ const ArticleViewer = (props) => {
                   width: "150px",
                 }}
               />
-              <button
-                style={{ margin: " 15px" }}
+              <Button
                 onClick={(e) => {
                   handleFireBaseUpload(e, imageAsFile).then((data) => {
                     setImageAsUrl(data);
@@ -230,7 +231,7 @@ const ArticleViewer = (props) => {
                 }}
               >
                 télécharger
-              </button>
+              </Button>
             </div>
           </FormGroup>
 
@@ -279,6 +280,7 @@ const ArticleViewer = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             disabled={
               categorie === undefined ||
               week === undefined ||
@@ -320,4 +322,4 @@ const ArticleViewer = (props) => {
   );
 };
 
-export default ArticleViewer;
+export default AddArticle;

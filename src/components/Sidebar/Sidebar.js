@@ -61,7 +61,6 @@ class Sidebar extends React.Component {
             <img src={logo} alt="Peaudouce" />
           </div>
         </div>
-        {alert("sidebar")}
         <div className="sidebar-wrapper" ref={this.sidebar}>
           <Nav>
             {this.props.routes.map((prop, key) => {

@@ -53,14 +53,14 @@ const ModalExample = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             color="primary"
             onClick={() => {
-              CreateNewDoc(props.pathFireBase, form);
               setRefresh(!refresh);
               toggle();
             }}
           >
-            Ajouter
+            Fermer
           </Button>
         </ModalFooter>
       </Modal>

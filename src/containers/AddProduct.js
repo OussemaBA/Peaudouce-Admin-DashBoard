@@ -70,7 +70,7 @@ const ModalExample = (props) => {
               </td>
             </tr>
             <tr>
-              <th>Color</th>
+              <th>Couleur</th>
               <td>
                 <input
                   onChange={(e) => {
@@ -95,6 +95,7 @@ const ModalExample = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             color="primary"
             onClick={() => {
               const prod = {

@@ -73,6 +73,20 @@ var routes = [
     layout: "/admin",
   },
 
+  {
+    path: "/products",
+    name: "Produits",
+    icon: "nc-icon nc-bag-16",
+    component: Products,
+    layout: "/admin",
+  },
+  {
+    path: "/categorie",
+    name: "Catégories",
+    icon: "nc-icon nc-bullet-list-67",
+    component: Categories,
+    layout: "/admin",
+  },
   // {
   //   path: "/notifications",
   //   name: "Notifications",

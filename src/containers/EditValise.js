@@ -67,7 +67,7 @@ const AddItem = (props) => {
         />
       </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>Modifier le nom d'une valise</ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
@@ -125,8 +125,8 @@ const AddItem = (props) => {
                       width: "200px",
                     }}
                   />
-                  <button
-                    style={{ margin: "0 30px 0px 30px", width: " 80%" }}
+                  <Button
+                    style={{ margin: "0 30px 0px 30px", width: "fit-content" }}
                     onClick={(e) => {
                       handleFireBaseUpload(e, imageAsFile).then((data) => {
                         setImageAsUrl(data);
@@ -134,7 +134,7 @@ const AddItem = (props) => {
                     }}
                   >
                     télécharger
-                  </button>
+                  </Button>
                 </div>
               </td>
             </tr>
@@ -142,6 +142,7 @@ const AddItem = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             disabled={form.name === ""}
             color="primary"
             onClick={() => {
@@ -160,7 +161,7 @@ const AddItem = (props) => {
             Enregister
           </Button>
           <Button
-            style={{ backgroundColor: "red" }}
+            style={{ backgroundColor: "red", width: "fit-content" }}
             onClick={() => {
               deleteDoc(`valisematernite`, valiseID);
 

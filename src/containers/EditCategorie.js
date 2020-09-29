@@ -89,7 +89,7 @@ const ModalExample = (props) => {
               </td>
             </tr>
             <tr>
-              <th>Color</th>
+              <th>Couleur</th>
               <td>
                 <input
                   onChange={(e) => handeChange(e, "color")}
@@ -147,7 +147,7 @@ const ModalExample = (props) => {
                       width: "250px",
                     }}
                   />
-                  <button
+                  <Button
                     style={{ margin: "0 30px 0px 30px", width: " 80%" }}
                     onClick={(e) => {
                       handleFireBaseUpload(e, imageAsFile).then((data) => {
@@ -156,7 +156,7 @@ const ModalExample = (props) => {
                     }}
                   >
                     télécharger
-                  </button>
+                  </Button>
                 </div>
               </td>
             </tr>
@@ -164,6 +164,7 @@ const ModalExample = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             disabled={
               form.name === "" ||
               (imageAsUrl.imgUrl === "" && image === "") ||

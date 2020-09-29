@@ -67,7 +67,7 @@ const AddItem = (props) => {
       </div>
 
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajouter un produit</ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>

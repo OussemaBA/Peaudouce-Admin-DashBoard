@@ -58,11 +58,15 @@ const ModalExample = (props) => {
 
   return (
     <div>
-      <Button style={{ float: "right" }} color="primary" onClick={toggle}>
+      <Button
+        style={{ float: "right", width: "fit-content" }}
+        color="primary"
+        onClick={toggle}
+      >
         ajouter
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajouter cycle baby dev</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajouter profile Bébé</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -132,64 +136,104 @@ const ModalExample = (props) => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="articleimage">Article image</Label>
-              <div className="parent">
-                <Input
-                  style={{ width: "100px" }}
-                  className="choosefile"
-                  type="file"
-                  name="articleimage"
-                  id="articleimage"
-                  onChange={handleUserImageAsFile}
-                />
-                <button
-                  className="uploadButton"
-                  onClick={(e) => {
-                    handleFireBaseUpload(e, UserimageAsFile).then((data) => {
-                      setUserImageAsUrl(data);
-                    });
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  margin: "15px",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Label for="articleimage">Article image</Label>
+                  <div style={{ margin: "5px" }}>
+                    <Input
+                      className="choosefile"
+                      type="file"
+                      name="articleimage"
+                      id="articleimage"
+                      onChange={handleUserImageAsFile}
+                    />
+                  </div>
+                  <img
+                    src={UserImageAsUrl.imgUrl || formValues.articleimage}
+                    style={{ width: "100px", height: "100px", margin: "5px" }}
+                  />
+                </div>
+                <div
+                  style={{
+                    width: "fit-content",
+                    alignItems: "center",
+                    marginTop: "60px",
+                    marginRight: "50px",
                   }}
                 >
-                  télécharger
-                </button>
+                  <Button
+                    onClick={(e) => {
+                      handleFireBaseUpload(e, UserimageAsFile).then((data) => {
+                        setUserImageAsUrl(data);
+                      });
+                    }}
+                  >
+                    télécharger
+                  </Button>
+                </div>
               </div>
             </FormGroup>
-            <img
-              src={UserImageAsUrl.imgUrl || formValues.articleimage}
-              style={{ width: "100px", height: "100px" }}
-            />
+
             <hr />
+
             <FormGroup>
-              <Label for="exampleFile">Image du bébé</Label>
-              <div className="parent">
-                <Input
-                  style={{ width: "100px" }}
-                  className="choosefile"
-                  type="file"
-                  name="circleimage"
-                  id="circleimage"
-                  onChange={BabyhandleImageAsFile}
-                />
-                <button
-                  className="uploadButton"
-                  onClick={(e) => {
-                    handleFireBaseUpload(e, BabyImageAsFile).then((data) => {
-                      setBabyImageAsUrl(data);
-                    });
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  margin: "15px",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Label for="exampleFile">Image du bébé</Label>
+                  <div style={{ margin: "5px" }}>
+                    <Input
+                      className="choosefile"
+                      type="file"
+                      name="articleimage"
+                      id="articleimage"
+                      onChange={BabyhandleImageAsFile}
+                    />
+                  </div>
+                  <img
+                    src={BabyImageAsUrl.imgUrl || formValues.circleimage}
+                    style={{ width: "100px", height: "100px", margin: "5px" }}
+                  />
+                </div>
+                <div
+                  style={{
+                    width: "fit-content",
+                    alignItems: "center",
+                    marginTop: "60px",
+                    marginRight: "50px",
                   }}
                 >
-                  télécharger
-                </button>
+                  <Button
+                    onClick={(e) => {
+                      handleFireBaseUpload(e, BabyImageAsFile).then((data) => {
+                        setBabyImageAsUrl(data);
+                      });
+                    }}
+                  >
+                    télécharger
+                  </Button>
+                </div>
               </div>
             </FormGroup>
-            <img
-              src={BabyImageAsUrl.imgUrl || formValues.circleimage}
-              style={{ width: "100px", height: "100px" }}
-            />
+       
           </Form>
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             type="submit"
             color="primary"
             disabled={
@@ -217,7 +261,8 @@ const ModalExample = (props) => {
             Ajouter
           </Button>{" "}
           <Button
-            color="secondary"
+            style={{ width: "fit-content" }}
+            color="info"
             onClick={() => {
               toggle();
               setFormValue(initinalState);

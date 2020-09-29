@@ -177,3 +177,7 @@ input[type="file"] {
 tbody {
   overflow-y: scroll;
 }
+
+.modal-header .close {
+  display: none;
+}

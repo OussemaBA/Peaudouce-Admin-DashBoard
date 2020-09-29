@@ -209,7 +209,8 @@ const EditArticle = (props) => {
             >
               <div
                 style={{
-                  color: "#FBC658",
+                  fontWeight: "bold",
+
                   padding: 0,
                   margin: 0,
                   fontSize: "15px",
@@ -234,7 +235,7 @@ const EditArticle = (props) => {
                   maxHeight: "200px",
                 }}
               />
-              <button
+              <Button
                 style={{ margin: " 15px" }}
                 onClick={(e) => {
                   handleFireBaseUpload(e, imageAsFile).then((data) => {
@@ -243,7 +244,7 @@ const EditArticle = (props) => {
                 }}
               >
                 télécharger
-              </button>
+              </Button>
             </div>
           </FormGroup>
 
@@ -251,7 +252,8 @@ const EditArticle = (props) => {
             <div className="typography-line" style={{ paddingLeft: 0 }}>
               <div
                 style={{
-                  color: "#FBC658",
+                  fontWeight: "bold",
+
                   padding: 0,
                   margin: 0,
                   fontSize: "15px",
@@ -279,11 +281,11 @@ const EditArticle = (props) => {
         <ModalBody>
           <div
             style={{
-              color: "#FBC658",
               padding: 0,
               margin: 0,
               fontSize: "15px",
               marginBottom: "10px",
+              fontWeight: "bold",
             }}
           >
             Contenu de l'article
@@ -304,6 +306,7 @@ const EditArticle = (props) => {
           <Button
             disabled={categorie === undefined}
             color="primary"
+            style={{ width: "fit-content" }}
             onClick={() => {
               const data = {
                 name,

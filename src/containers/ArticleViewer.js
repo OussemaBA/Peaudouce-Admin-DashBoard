@@ -106,7 +106,11 @@ const ArticleViewer = (props) => {
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
+          <Button
+            style={{ width: "fit-content" }}
+            color="primary"
+            onClick={toggle}
+          >
             Fermer
           </Button>
         </ModalFooter>

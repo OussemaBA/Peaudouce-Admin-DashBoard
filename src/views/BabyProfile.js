@@ -127,12 +127,19 @@ const BabyDevelopment = (props) => {
                         </div>
                       </td>
                       <td>
-                        <img src={el[1]?.articleimage || defaultProfilePhoto} />
+                        <img
+                          src={el[1]?.articleimage || defaultProfilePhoto}
+                          style={{
+                            MaxWidth: "50px",
+                            MaxHeight: "50px",
+                            margin: "5px",
+                          }}
+                        />
                       </td>
                       <td>
                         <img
                           src={el[1]?.circleimage || defaultProfilePhoto}
-                          style={{ width: "100px", height: "100px" }}
+                          style={{ MaxWidth: "50px", MaxHeight: "50px" }}
                         />
                       </td>
                       <td>{el[1].shortdescription}</td>

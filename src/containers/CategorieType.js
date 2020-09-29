@@ -33,7 +33,7 @@ const CategorieType = (props) => {
                   style={{
                     width: "100%",
                     margin: "auto",
-                    flex: 1,
+                    flex: 0,
                     fontSize: "x-large",
                     color: "#007bff",
                   }}
@@ -47,7 +47,7 @@ const CategorieType = (props) => {
 
                 <div
                   style={{
-                    flex: 5,
+                    flex: 4,
                     width: "100%",
                     margin: "auto",
                     fontSize: "125%%",
@@ -57,7 +57,6 @@ const CategorieType = (props) => {
                 </div>
                 <div
                   style={{
-                    flex: 2,
                     display: "inline",
                     marginRight: "15px",
                   }}

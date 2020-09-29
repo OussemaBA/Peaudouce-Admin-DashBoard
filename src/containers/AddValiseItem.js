@@ -48,7 +48,9 @@ const EditValiseItem = (props) => {
       </div>
 
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          Ajouter un produit a un valise
+        </ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
@@ -67,6 +69,8 @@ const EditValiseItem = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
+            style={{ width: "content" }}
             disabled={form.Name === ""}
             color="primary"
             onClick={() => {

@@ -9,7 +9,7 @@ import {
   Input,
   CustomInput,
 } from "reactstrap";
-import { IoMdAddCircleOutline } from "react-icons/io";
+import { RiPlayListAddLine } from "react-icons/ri";
 import { handleFireBaseUpload, CreateNewDoc } from "../Api/Api";
 
 const AddCategorie = (props) => {
@@ -39,26 +39,35 @@ const AddCategorie = (props) => {
     <div>
       <div
         onClick={toggle}
-        className="collapseButton"
         style={{
           display: "flex",
           justifyContent: "flex-end",
-          fontSize: "12px",
-
+          margin: "20px",
           alignItems: "center",
-
-          color: "#007bff",
         }}
       >
-        <div style={{ marginRight: "5px", marginTop: "5px" }}>
+        <div
+          className="collapseButton"
+          style={{ color: "#007bff", marginRight: "15px" }}
+        >
+          {" "}
           Ajouter une categorie
         </div>
-        <div style={{ fontSize: "x-large" }}>
-          <IoMdAddCircleOutline />
+        <div
+          className="collapseButton"
+          style={{
+            margin: 0,
+            display: "flex",
+            justifyContent: "flex-end",
+            fontSize: "x-large",
+            color: "#007bff",
+          }}
+        >
+          <RiPlayListAddLine />
         </div>
       </div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Ajouter un categorie</ModalHeader>
+        <ModalHeader toggle={toggle}>Ajouter une categorie</ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
@@ -86,7 +95,7 @@ const AddCategorie = (props) => {
               </td>
             </tr>
             <tr>
-              <th>Color</th>
+              <th>Couleur</th>
               <td>
                 <input
                   onChange={(e) => handeChange(e, "color")}
@@ -144,8 +153,8 @@ const AddCategorie = (props) => {
                       width: "250px",
                     }}
                   />
-                  <button
-                    style={{ margin: "0 30px 0px 30px", width: " 80%" }}
+                  <Button
+                    style={{ margin: "0 30px 0px 30px", width: "fit-content" }}
                     onClick={(e) => {
                       handleFireBaseUpload(e, imageAsFile).then((data) => {
                         setImageAsUrl(data);
@@ -153,7 +162,7 @@ const AddCategorie = (props) => {
                     }}
                   >
                     télécharger
-                  </button>
+                  </Button>
                 </div>
               </td>
             </tr>
@@ -161,6 +170,7 @@ const AddCategorie = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             disabled={
               form.name === "" ||
               imageAsUrl.imgUrl === "" ||

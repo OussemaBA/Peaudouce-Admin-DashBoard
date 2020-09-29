@@ -37,7 +37,7 @@ const ModalExample = (props) => {
       />
 
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>Modifier le nom d'un bébé</ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>

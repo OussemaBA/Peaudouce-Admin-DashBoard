@@ -11,7 +11,7 @@ import {
 import { UpdateDoc } from "../Api/Api";
 import { AiOutlineEdit } from "react-icons/ai";
 
-const ModalExample = (props) => {
+const EditProduct = (props) => {
   const { className, refresh, setRefresh, id, name, items, color } = props;
   const [NewColor, setNewColor] = useState(`${color}`);
   const [modal, setModal] = useState(false);
@@ -45,7 +45,12 @@ const ModalExample = (props) => {
       </div>
 
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier Gamme Produit</ModalHeader>
+        <ModalHeader
+          toggle={toggle}
+          style={{ whiteSpace: "nowrap", width: "100%" }}
+        >
+          Modifier Gamme Produit
+        </ModalHeader>
         <ModalBody>
           <Table bordered className={"BordedTable"}>
             <tr>
@@ -62,7 +67,7 @@ const ModalExample = (props) => {
               </td>
             </tr>
             <tr>
-              <th>Color</th>
+              <th>Couleur</th>
               <td>
                 <input
                   onChange={(e) => {
@@ -87,6 +92,7 @@ const ModalExample = (props) => {
         </ModalBody>
         <ModalFooter>
           <Button
+            style={{ width: "fit-content" }}
             color="primary"
             onClick={() => {
               const prod = {
@@ -108,4 +114,4 @@ const ModalExample = (props) => {
   );
 };
 
-export default ModalExample;
+export default EditProduct;

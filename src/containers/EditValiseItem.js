@@ -46,7 +46,7 @@ const EditValiseItem = (props) => {
       </div>
 
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modifier le nom</ModalHeader>
+        <ModalHeader toggle={toggle}>Modifier le nom du produit</ModalHeader>
         <ModalBody>
           <Table striped bordered className={"BordedTable"}>
             <tr>

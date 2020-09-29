@@ -5,7 +5,7 @@ import { fetchData, deleteDoc } from "../Api/Api";
 import { AiOutlineDelete } from "react-icons/ai";
 import ArticleViewer from "./ArticleViewer";
 import EditArticle from "./EditArticle";
-import CreateNewArticle from "./AddArticle";
+import AddArticle from "./AddArticle";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -39,7 +39,7 @@ const Articles = () => {
             >
               <div className="image">
                 <img
-                  style={{ width: "100%", height: "100%" }}
+                  style={{ maxWidth: "200px", maxHeight: "200px" }}
                   alt="..."
                   src={el[1].image}
                 />
@@ -105,7 +105,7 @@ const Articles = () => {
     <div className="content">
       <Row>
         <Col style={{ flex: 1, margin: "10px 0px 0px 15px" }}>
-          <CreateNewArticle
+          <AddArticle
             pathToFireBase={"articles"}
             refresh={refresh}
             setRefresh={setRefresh}
